@@ -1,7 +1,6 @@
-var conditions, actions, nameField, ageField, occupationField, submit, allData;
+var conditions, actions, submit, allData;
 (function($) {
-  var occupationOptions = [ "Software Engineer", "Biz Dev", "Marketing" ];
-
+ 
   function getInitialData() {
     return {
       "variables":[
@@ -302,9 +301,6 @@ var conditions, actions, nameField, ageField, occupationField, submit, allData;
   function onReady() {
     conditions = $("#conditions");
     actions = $("#actions");
-    nameField = $("#nameField");
-    occupationField = $("#occupationField");
-    ageField = $("#ageField");
     submit = $("#submit");
     allData = getInitialData();
 
@@ -322,18 +318,14 @@ var conditions, actions, nameField, ageField, occupationField, submit, allData;
   }
 
   function initializeForm() {
-    for(var i=0; i < occupationOptions.length; i++) {
-      var o = occupationOptions[i];
-      occupationField.append($("<option>", {value: o.name, text: o.label}));
-    }
-
-    submit.click(function(e) {
-      e.preventDefault();
-      console.log("CONDITIONS");
-      console.log(JSON.stringify(conditions.conditionsBuilder("data")));
-      console.log("ACTIONS");
-      console.log(JSON.stringify(actions.actionsBuilder("data")));
-    });
+    
+  submit.click(function(e) {
+    e.preventDefault();
+    console.log("CONDITIONS");
+    console.log(JSON.stringify(conditions.conditionsBuilder("data")));
+    console.log("ACTIONS");
+    console.log(JSON.stringify(actions.actionsBuilder("data")));
+  });
   }
   $(onReady);
 })(jQuery);
